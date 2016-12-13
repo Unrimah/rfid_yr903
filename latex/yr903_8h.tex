@@ -1,0 +1,236 @@
+\hypertarget{yr903_8h}{\section{yr903.\-h File Reference}
+\label{yr903_8h}\index{yr903.\-h@{yr903.\-h}}
+}
+
+
+R\-F\-I\-D controller Y\-R903 command set header file.  
+
+
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$cstring$>$}\\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$termios.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$sys/ioctl.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{yr903_8h_a76c0710fa5ff2d511bf642662801bedf}{\#define \hyperlink{yr903_8h_a76c0710fa5ff2d511bf642662801bedf}{R\-C\-V\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}~256}\label{yr903_8h_a76c0710fa5ff2d511bf642662801bedf}
+
+\begin{DoxyCompactList}\small\item\em Data receiving buffer size. \end{DoxyCompactList}\item 
+\hypertarget{yr903_8h_a72aa292684aefb3516333e7f100ca205}{\#define \hyperlink{yr903_8h_a72aa292684aefb3516333e7f100ca205}{S\-N\-D\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}~256}\label{yr903_8h_a72aa292684aefb3516333e7f100ca205}
+
+\begin{DoxyCompactList}\small\item\em Data sending buffer size. \end{DoxyCompactList}\item 
+\hypertarget{yr903_8h_a79b0e7e27ebced9b57a64ace715c4bf9}{\#define \hyperlink{yr903_8h_a79b0e7e27ebced9b57a64ace715c4bf9}{R\-E\-A\-D\-\_\-\-C\-Y\-C\-L\-E\-\_\-\-P\-E\-R\-I\-O\-D}~1000}\label{yr903_8h_a79b0e7e27ebced9b57a64ace715c4bf9}
+
+\begin{DoxyCompactList}\small\item\em Cycle waiting period for reading from device in usec, 1 msec default. \end{DoxyCompactList}\item 
+\hypertarget{yr903_8h_aeec56de5ba33b4500953edb0dd7583fe}{\#define \hyperlink{yr903_8h_aeec56de5ba33b4500953edb0dd7583fe}{R\-E\-S\-P\-O\-N\-C\-E\-\_\-\-P\-E\-R\-I\-O\-D}~1000}\label{yr903_8h_aeec56de5ba33b4500953edb0dd7583fe}
+
+\begin{DoxyCompactList}\small\item\em Wait for responce from device in R\-E\-A\-D\-\_\-\-C\-Y\-C\-L\-E\-\_\-\-P\-E\-R\-I\-O\-Ds, 1 sec default. \end{DoxyCompactList}\item 
+\hypertarget{yr903_8h_a6463086149a44b7579805a07cf0367f5}{\#define \hyperlink{yr903_8h_a6463086149a44b7579805a07cf0367f5}{Y\-R903\-\_\-\-L\-A\-B\-E\-L\-\_\-\-P\-K\-T\-\_\-\-L\-E\-N}~21}\label{yr903_8h_a6463086149a44b7579805a07cf0367f5}
+
+\begin{DoxyCompactList}\small\item\em Length of data packet carrying label data. \end{DoxyCompactList}\item 
+\hypertarget{yr903_8h_a10231ba749a9e42d78ee7bf8747f7c09}{\#define \hyperlink{yr903_8h_a10231ba749a9e42d78ee7bf8747f7c09}{T\-I\-O\-C\-M\-\_\-\-L\-O\-O\-P}~0x8000}\label{yr903_8h_a10231ba749a9e42d78ee7bf8747f7c09}
+
+\begin{DoxyCompactList}\small\item\em Serial port loopback parameters constant for D\-A\-R\-T-\/\-M\-X6. \end{DoxyCompactList}\item 
+\hypertarget{yr903_8h_affa2170bdb6314927908e34a8c5c1e47}{\#define \hyperlink{yr903_8h_affa2170bdb6314927908e34a8c5c1e47}{Y\-R903\-\_\-\-P\-O\-W\-E\-R\-O\-F\-F}~\char`\"{}0\char`\"{}}\label{yr903_8h_affa2170bdb6314927908e34a8c5c1e47}
+
+\begin{DoxyCompactList}\small\item\em sets rfid powering off via sysfs gpio \end{DoxyCompactList}\item 
+\hypertarget{yr903_8h_a2145c9f9eaebff0640bbeff58e626e75}{\#define \hyperlink{yr903_8h_a2145c9f9eaebff0640bbeff58e626e75}{Y\-R903\-\_\-\-P\-O\-W\-E\-R\-O\-N}~\char`\"{}1\char`\"{}}\label{yr903_8h_a2145c9f9eaebff0640bbeff58e626e75}
+
+\begin{DoxyCompactList}\small\item\em sets rfid powering on via sysfs gpio \end{DoxyCompactList}\item 
+\hypertarget{yr903_8h_a68c266a49ae810cb47ce9282977333d5}{\#define \hyperlink{yr903_8h_a68c266a49ae810cb47ce9282977333d5}{Y\-R903\-\_\-\-P\-A\-T\-H\-\_\-\-G\-P\-I\-O}~\char`\"{}/sys/class/gpio/gpio\char`\"{}}\label{yr903_8h_a68c266a49ae810cb47ce9282977333d5}
+
+\begin{DoxyCompactList}\small\item\em sysfs gpios prefix \end{DoxyCompactList}\item 
+\hypertarget{yr903_8h_a9a08beaf9f2cf5357bd29e76013425f7}{\#define \hyperlink{yr903_8h_a9a08beaf9f2cf5357bd29e76013425f7}{Y\-R903\-\_\-\-P\-A\-T\-H\-\_\-\-E\-X\-P\-O\-R\-T}~\char`\"{}/sys/class/gpio/export\char`\"{}}\label{yr903_8h_a9a08beaf9f2cf5357bd29e76013425f7}
+
+\begin{DoxyCompactList}\small\item\em sysfs gpio exporting node \end{DoxyCompactList}\item 
+\hypertarget{yr903_8h_ae738ce465827ea7bf1cc7cf1178a1500}{\#define \hyperlink{yr903_8h_ae738ce465827ea7bf1cc7cf1178a1500}{Y\-R903\-\_\-\-P\-A\-T\-H\-\_\-\-S\-E\-L\-E\-C\-T}~\char`\"{}123\char`\"{}}\label{yr903_8h_ae738ce465827ea7bf1cc7cf1178a1500}
+
+\begin{DoxyCompactList}\small\item\em rfid/barcode scaner selection gpio\-: rfid = 0, barcode = 1. \end{DoxyCompactList}\item 
+\hypertarget{yr903_8h_a0f586ffd37fe69d26ff8c6044d20d048}{\#define \hyperlink{yr903_8h_a0f586ffd37fe69d26ff8c6044d20d048}{Y\-R903\-\_\-\-P\-A\-T\-H\-\_\-\-P\-O\-W\-E\-R}~\char`\"{}124\char`\"{}}\label{yr903_8h_a0f586ffd37fe69d26ff8c6044d20d048}
+
+\begin{DoxyCompactList}\small\item\em rfid powering gpio \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161}{yr903\-\_\-cmd} \{ \\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161af1faf5564f65c45c45891755b9801a4b}{Y\-R903\-\_\-\-C\-M\-D\-\_\-\-R\-E\-C\-E\-I\-V\-E\-\_\-\-O\-N\-L\-Y} = 0x00, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161ac86197ce0ec82b8bc75beab79c1f1ccb}{Y\-R903\-\_\-\-C\-M\-D\-\_\-read\-\_\-gpio\-\_\-value} = 0x60, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161ad25be3c25876e85a680ba58b94003b27}{Y\-R903\-\_\-\-C\-M\-D\-\_\-write\-\_\-gpio\-\_\-value} = 0x61, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a8f1e9e990129e40d8d7ec840c8c86218}{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-reader\-\_\-identifier} = 0x67, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161abc4a049aaa13ffd667b988c37dbbc9d1}{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-reader\-\_\-identifier} = 0x68, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a340c3b6b174b5f1eeb297353f5798e9f}{Y\-R903\-\_\-\-C\-M\-D\-\_\-reset} = 0x70, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161ac2416cf5f700e5c13c799ac5100ff186}{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-uart\-\_\-baudrate} = 0x71, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161aa9f3929840a9395e646a3d7357212fce}{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-firmware\-\_\-version} = 0x72, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a29b878182bbae8c431a73183687199ff}{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-reader\-\_\-address} = 0x73, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a493fa2b49f4534488d4dfa0937368f6a}{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-work\-\_\-antenna} = 0x74, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161acb30507b08602a63f3b2876a554fca30}{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-output\-\_\-power} = 0x76, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a178fd5cd11eb0ee4f0814cf4bdde3787}{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-output\-\_\-power} = 0x77, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a325ab1e0d11ef0a82064ed4b32bc4880}{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-frequency\-\_\-region} = 0x78, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a9f7117d474af251dd861c63db2335492}{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-frequency\-\_\-region} = 0x79, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161aaeae18c8a99a75610dc45018bf0b0042}{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-beeper\-\_\-mode} = 0x7\-A, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a8d191189cc53c8f9e19c6347e5028071}{Y\-R903\-\_\-\-C\-M\-D\-\_\-inventory} = 0x80, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a7b1019abba638e6cde3e2a38b0f8093b}{Y\-R903\-\_\-\-C\-M\-D\-\_\-read} = 0x81, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a90142d0b15abe74c958e8dd2dbf96dcc}{Y\-R903\-\_\-\-C\-M\-D\-\_\-write} = 0x82, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161adce71f322c39ae2212db8572ae988d27}{Y\-R903\-\_\-\-C\-M\-D\-\_\-lock} = 0x83, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a0f1f371a7ce2e00a993846a2547be9bd}{Y\-R903\-\_\-\-C\-M\-D\-\_\-kill} = 0x84, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a62b3bff1d0dad10286e5b781a75796a4}{Y\-R903\-\_\-\-C\-M\-D\-\_\-real\-\_\-time\-\_\-inventory} = 0x89, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a8158d50d2ed9e3eee06a780843e07d44}{Y\-R903\-\_\-\-C\-M\-D\-\_\-customized\-\_\-session\-\_\-target\-\_\-inventory} = 0x8\-B, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a1b9c59caf01e500272d90d2ea88b570a}{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-inventory\-\_\-buffer} = 0x90, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a86cb28d36877f52a0fc1c4e1b26e3a35}{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-and\-\_\-reset\-\_\-inventory\-\_\-buffer} = 0x91, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161afa0419805ce36b02e860a6816d151cbb}{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-inventory\-\_\-buffer\-\_\-tag\-\_\-count} = 0x92, 
+\\*
+\hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a60093437cbb2af75e0f5b86a85c47e36}{Y\-R903\-\_\-\-C\-M\-D\-\_\-reset\-\_\-inventory\-\_\-buffer} = 0x93
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{yr903_8h_ac191b61b17141abdb47b70d54967adcd}{set\-\_\-interface\-\_\-attribs} (int fd, int speed, int parity, int loopback)
+\begin{DoxyCompactList}\small\item\em Sets attributes to designated character device. \end{DoxyCompactList}\item 
+\hypertarget{yr903_8h_a4900a8cd44c17aa8c59335aef0f5b12b}{int {\bfseries perform\-\_\-yr903} (int fd, unsigned char address, \hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161}{yr903\-\_\-cmd} command, const unsigned char $\ast$data, unsigned int data\-\_\-length, char($\ast$pbuf)\mbox{[}\hyperlink{yr903_8h_a76c0710fa5ff2d511bf642662801bedf}{R\-C\-V\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}\mbox{]})}\label{yr903_8h_a4900a8cd44c17aa8c59335aef0f5b12b}
+
+\item 
+\hypertarget{yr903_8h_a7535c2a6821f26eaa619f495e73c3481}{int {\bfseries power\-\_\-yr903} (const char $\ast$action)}\label{yr903_8h_a7535c2a6821f26eaa619f495e73c3481}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+R\-F\-I\-D controller Y\-R903 command set header file. \begin{DoxyAuthor}{Author}
+Vladimir Bogdanov 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+November 2016 
+\end{DoxyDate}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161}{\index{yr903.\-h@{yr903.\-h}!yr903\-\_\-cmd@{yr903\-\_\-cmd}}
+\index{yr903\-\_\-cmd@{yr903\-\_\-cmd}!yr903.h@{yr903.\-h}}
+\subsubsection[{yr903\-\_\-cmd}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf yr903\-\_\-cmd}}}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161}
+Command list for yr903 according to specification \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Y\-R903\-\_\-\-C\-M\-D\-\_\-\-R\-E\-C\-E\-I\-V\-E\-\_\-\-O\-N\-L\-Y@{Y\-R903\-\_\-\-C\-M\-D\-\_\-\-R\-E\-C\-E\-I\-V\-E\-\_\-\-O\-N\-L\-Y}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-\-R\-E\-C\-E\-I\-V\-E\-\_\-\-O\-N\-L\-Y@{Y\-R903\-\_\-\-C\-M\-D\-\_\-\-R\-E\-C\-E\-I\-V\-E\-\_\-\-O\-N\-L\-Y}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161af1faf5564f65c45c45891755b9801a4b}{Y\-R903\-\_\-\-C\-M\-D\-\_\-\-R\-E\-C\-E\-I\-V\-E\-\_\-\-O\-N\-L\-Y}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161af1faf5564f65c45c45891755b9801a4b}
+}]service value for continious receiving \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-read\-\_\-gpio\-\_\-value@{Y\-R903\-\_\-\-C\-M\-D\-\_\-read\-\_\-gpio\-\_\-value}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-read\-\_\-gpio\-\_\-value@{Y\-R903\-\_\-\-C\-M\-D\-\_\-read\-\_\-gpio\-\_\-value}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161ac86197ce0ec82b8bc75beab79c1f1ccb}{Y\-R903\-\_\-\-C\-M\-D\-\_\-read\-\_\-gpio\-\_\-value}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161ac86197ce0ec82b8bc75beab79c1f1ccb}
+}]not tested \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-write\-\_\-gpio\-\_\-value@{Y\-R903\-\_\-\-C\-M\-D\-\_\-write\-\_\-gpio\-\_\-value}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-write\-\_\-gpio\-\_\-value@{Y\-R903\-\_\-\-C\-M\-D\-\_\-write\-\_\-gpio\-\_\-value}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161ad25be3c25876e85a680ba58b94003b27}{Y\-R903\-\_\-\-C\-M\-D\-\_\-write\-\_\-gpio\-\_\-value}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161ad25be3c25876e85a680ba58b94003b27}
+}]not tested \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-reader\-\_\-identifier@{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-reader\-\_\-identifier}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-reader\-\_\-identifier@{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-reader\-\_\-identifier}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a8f1e9e990129e40d8d7ec840c8c86218}{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-reader\-\_\-identifier}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a8f1e9e990129e40d8d7ec840c8c86218}
+}]not tested \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-reader\-\_\-identifier@{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-reader\-\_\-identifier}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-reader\-\_\-identifier@{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-reader\-\_\-identifier}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161abc4a049aaa13ffd667b988c37dbbc9d1}{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-reader\-\_\-identifier}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161abc4a049aaa13ffd667b988c37dbbc9d1}
+}]not tested \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-reset@{Y\-R903\-\_\-\-C\-M\-D\-\_\-reset}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-reset@{Y\-R903\-\_\-\-C\-M\-D\-\_\-reset}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a340c3b6b174b5f1eeb297353f5798e9f}{Y\-R903\-\_\-\-C\-M\-D\-\_\-reset}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a340c3b6b174b5f1eeb297353f5798e9f}
+}]tested O\-K \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-uart\-\_\-baudrate@{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-uart\-\_\-baudrate}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-uart\-\_\-baudrate@{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-uart\-\_\-baudrate}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161ac2416cf5f700e5c13c799ac5100ff186}{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-uart\-\_\-baudrate}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161ac2416cf5f700e5c13c799ac5100ff186}
+}]not tested \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-firmware\-\_\-version@{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-firmware\-\_\-version}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-firmware\-\_\-version@{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-firmware\-\_\-version}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161aa9f3929840a9395e646a3d7357212fce}{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-firmware\-\_\-version}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161aa9f3929840a9395e646a3d7357212fce}
+}]tested O\-K \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-reader\-\_\-address@{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-reader\-\_\-address}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-reader\-\_\-address@{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-reader\-\_\-address}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a29b878182bbae8c431a73183687199ff}{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-reader\-\_\-address}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a29b878182bbae8c431a73183687199ff}
+}]not tested \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-work\-\_\-antenna@{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-work\-\_\-antenna}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-work\-\_\-antenna@{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-work\-\_\-antenna}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a493fa2b49f4534488d4dfa0937368f6a}{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-work\-\_\-antenna}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a493fa2b49f4534488d4dfa0937368f6a}
+}]tested O\-K \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-output\-\_\-power@{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-output\-\_\-power}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-output\-\_\-power@{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-output\-\_\-power}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161acb30507b08602a63f3b2876a554fca30}{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-output\-\_\-power}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161acb30507b08602a63f3b2876a554fca30}
+}]not tested \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-output\-\_\-power@{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-output\-\_\-power}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-output\-\_\-power@{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-output\-\_\-power}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a178fd5cd11eb0ee4f0814cf4bdde3787}{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-output\-\_\-power}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a178fd5cd11eb0ee4f0814cf4bdde3787}
+}]not tested \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-frequency\-\_\-region@{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-frequency\-\_\-region}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-frequency\-\_\-region@{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-frequency\-\_\-region}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a325ab1e0d11ef0a82064ed4b32bc4880}{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-frequency\-\_\-region}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a325ab1e0d11ef0a82064ed4b32bc4880}
+}]not tested \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-frequency\-\_\-region@{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-frequency\-\_\-region}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-frequency\-\_\-region@{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-frequency\-\_\-region}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a9f7117d474af251dd861c63db2335492}{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-frequency\-\_\-region}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a9f7117d474af251dd861c63db2335492}
+}]not tested \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-beeper\-\_\-mode@{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-beeper\-\_\-mode}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-beeper\-\_\-mode@{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-beeper\-\_\-mode}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161aaeae18c8a99a75610dc45018bf0b0042}{Y\-R903\-\_\-\-C\-M\-D\-\_\-set\-\_\-beeper\-\_\-mode}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161aaeae18c8a99a75610dc45018bf0b0042}
+}]tested O\-K \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-inventory@{Y\-R903\-\_\-\-C\-M\-D\-\_\-inventory}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-inventory@{Y\-R903\-\_\-\-C\-M\-D\-\_\-inventory}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a8d191189cc53c8f9e19c6347e5028071}{Y\-R903\-\_\-\-C\-M\-D\-\_\-inventory}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a8d191189cc53c8f9e19c6347e5028071}
+}]not tested \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-read@{Y\-R903\-\_\-\-C\-M\-D\-\_\-read}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-read@{Y\-R903\-\_\-\-C\-M\-D\-\_\-read}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a7b1019abba638e6cde3e2a38b0f8093b}{Y\-R903\-\_\-\-C\-M\-D\-\_\-read}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a7b1019abba638e6cde3e2a38b0f8093b}
+}]not tested \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-write@{Y\-R903\-\_\-\-C\-M\-D\-\_\-write}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-write@{Y\-R903\-\_\-\-C\-M\-D\-\_\-write}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a90142d0b15abe74c958e8dd2dbf96dcc}{Y\-R903\-\_\-\-C\-M\-D\-\_\-write}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a90142d0b15abe74c958e8dd2dbf96dcc}
+}]not tested \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-lock@{Y\-R903\-\_\-\-C\-M\-D\-\_\-lock}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-lock@{Y\-R903\-\_\-\-C\-M\-D\-\_\-lock}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161adce71f322c39ae2212db8572ae988d27}{Y\-R903\-\_\-\-C\-M\-D\-\_\-lock}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161adce71f322c39ae2212db8572ae988d27}
+}]not tested \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-kill@{Y\-R903\-\_\-\-C\-M\-D\-\_\-kill}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-kill@{Y\-R903\-\_\-\-C\-M\-D\-\_\-kill}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a0f1f371a7ce2e00a993846a2547be9bd}{Y\-R903\-\_\-\-C\-M\-D\-\_\-kill}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a0f1f371a7ce2e00a993846a2547be9bd}
+}]not tested \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-real\-\_\-time\-\_\-inventory@{Y\-R903\-\_\-\-C\-M\-D\-\_\-real\-\_\-time\-\_\-inventory}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-real\-\_\-time\-\_\-inventory@{Y\-R903\-\_\-\-C\-M\-D\-\_\-real\-\_\-time\-\_\-inventory}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a62b3bff1d0dad10286e5b781a75796a4}{Y\-R903\-\_\-\-C\-M\-D\-\_\-real\-\_\-time\-\_\-inventory}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a62b3bff1d0dad10286e5b781a75796a4}
+}]tested O\-K \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-customized\-\_\-session\-\_\-target\-\_\-inventory@{Y\-R903\-\_\-\-C\-M\-D\-\_\-customized\-\_\-session\-\_\-target\-\_\-inventory}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-customized\-\_\-session\-\_\-target\-\_\-inventory@{Y\-R903\-\_\-\-C\-M\-D\-\_\-customized\-\_\-session\-\_\-target\-\_\-inventory}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a8158d50d2ed9e3eee06a780843e07d44}{Y\-R903\-\_\-\-C\-M\-D\-\_\-customized\-\_\-session\-\_\-target\-\_\-inventory}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a8158d50d2ed9e3eee06a780843e07d44}
+}]not tested \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-inventory\-\_\-buffer@{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-inventory\-\_\-buffer}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-inventory\-\_\-buffer@{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-inventory\-\_\-buffer}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a1b9c59caf01e500272d90d2ea88b570a}{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-inventory\-\_\-buffer}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a1b9c59caf01e500272d90d2ea88b570a}
+}]not tested \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-and\-\_\-reset\-\_\-inventory\-\_\-buffer@{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-and\-\_\-reset\-\_\-inventory\-\_\-buffer}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-and\-\_\-reset\-\_\-inventory\-\_\-buffer@{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-and\-\_\-reset\-\_\-inventory\-\_\-buffer}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a86cb28d36877f52a0fc1c4e1b26e3a35}{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-and\-\_\-reset\-\_\-inventory\-\_\-buffer}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a86cb28d36877f52a0fc1c4e1b26e3a35}
+}]not tested \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-inventory\-\_\-buffer\-\_\-tag\-\_\-count@{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-inventory\-\_\-buffer\-\_\-tag\-\_\-count}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-inventory\-\_\-buffer\-\_\-tag\-\_\-count@{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-inventory\-\_\-buffer\-\_\-tag\-\_\-count}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161afa0419805ce36b02e860a6816d151cbb}{Y\-R903\-\_\-\-C\-M\-D\-\_\-get\-\_\-inventory\-\_\-buffer\-\_\-tag\-\_\-count}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161afa0419805ce36b02e860a6816d151cbb}
+}]not tested \index{Y\-R903\-\_\-\-C\-M\-D\-\_\-reset\-\_\-inventory\-\_\-buffer@{Y\-R903\-\_\-\-C\-M\-D\-\_\-reset\-\_\-inventory\-\_\-buffer}!yr903.\-h@{yr903.\-h}}\index{yr903.\-h@{yr903.\-h}!Y\-R903\-\_\-\-C\-M\-D\-\_\-reset\-\_\-inventory\-\_\-buffer@{Y\-R903\-\_\-\-C\-M\-D\-\_\-reset\-\_\-inventory\-\_\-buffer}}\item[{\em 
+\hypertarget{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a60093437cbb2af75e0f5b86a85c47e36}{Y\-R903\-\_\-\-C\-M\-D\-\_\-reset\-\_\-inventory\-\_\-buffer}\label{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161a60093437cbb2af75e0f5b86a85c47e36}
+}]not tested \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{yr903_8h_ac191b61b17141abdb47b70d54967adcd}{\index{yr903.\-h@{yr903.\-h}!set\-\_\-interface\-\_\-attribs@{set\-\_\-interface\-\_\-attribs}}
+\index{set\-\_\-interface\-\_\-attribs@{set\-\_\-interface\-\_\-attribs}!yr903.h@{yr903.\-h}}
+\subsubsection[{set\-\_\-interface\-\_\-attribs}]{\setlength{\rightskip}{0pt plus 5cm}int set\-\_\-interface\-\_\-attribs (
+\begin{DoxyParamCaption}
+\item[{int}]{fd, }
+\item[{int}]{speed, }
+\item[{int}]{parity, }
+\item[{int}]{loopback}
+\end{DoxyParamCaption}
+)}}\label{yr903_8h_ac191b61b17141abdb47b70d54967adcd}
+
+
+Sets attributes to designated character device. 
+
+This function sets U\-A\-R\-T attributes to designated character device and also controls incircuit loopback.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em fd} & opened file descriptor, pointing to character device \\
+\hline
+\mbox{\tt in}  & {\em speed} & baudrate constant \\
+\hline
+\mbox{\tt in}  & {\em parity} & parity bit mode \\
+\hline
+\mbox{\tt in}  & {\em loopback} & architecture-\/specific constant to control incircuit loopback, use T\-I\-O\-C\-M\-\_\-\-L\-O\-O\-P value to set. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & on success \\
+\hline
+{\em -\/1} & on error \\
+\hline
+\end{DoxyRetVals}

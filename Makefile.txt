@@ -1,0 +1,9 @@
+.PHONY: all clean
+
+all: kkm
+
+clean:
+	rm -rf kkm *.o *~
+
+kkm: kkm_main.cpp kkm.cpp
+	g++ -Wall -Wextra -o kkm kkm_main.cpp kkm.cpp

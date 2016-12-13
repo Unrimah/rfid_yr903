@@ -1,0 +1,142 @@
+\hypertarget{yr903_8cpp}{\section{yr903.\-cpp File Reference}
+\label{yr903_8cpp}\index{yr903.\-cpp@{yr903.\-cpp}}
+}
+
+
+R\-F\-I\-D controller Y\-R903 command set implementation file.  
+
+
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$fstream$>$}\\*
+{\ttfamily \#include $<$cstring$>$}\\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$termios.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$list$>$}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
+{\ttfamily \#include $<$stdarg.\-h$>$}\\*
+{\ttfamily \#include $<$sys/stat.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}yr903.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{yr903_8cpp_ac191b61b17141abdb47b70d54967adcd}{set\-\_\-interface\-\_\-attribs} (int fd, int speed, int parity, int loopback)
+\begin{DoxyCompactList}\small\item\em Sets attributes to designated character device. \end{DoxyCompactList}\item 
+int \hyperlink{yr903_8cpp_aa7f4324e770df4a79aca3901b05f3786}{readport} (int fd, char $\ast$buf, int len)
+\begin{DoxyCompactList}\small\item\em Read to buffer from designated character device. \end{DoxyCompactList}\item 
+unsigned char \hyperlink{yr903_8cpp_a3f0dcaf939e1340c796536d1f650875b}{checksum} (unsigned char $\ast$u\-Buff, unsigned char u\-Buff\-Len)
+\begin{DoxyCompactList}\small\item\em Calculates checksum for data packet according to specification. \end{DoxyCompactList}\item 
+\hypertarget{yr903_8cpp_a4900a8cd44c17aa8c59335aef0f5b12b}{int {\bfseries perform\-\_\-yr903} (int fd, unsigned char address, \hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161}{yr903\-\_\-cmd} command, const unsigned char $\ast$data, unsigned int data\-\_\-length, char($\ast$pbuf)\mbox{[}\hyperlink{yr903_8h_a76c0710fa5ff2d511bf642662801bedf}{R\-C\-V\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}\mbox{]})}\label{yr903_8cpp_a4900a8cd44c17aa8c59335aef0f5b12b}
+
+\item 
+\hypertarget{yr903_8cpp_a7535c2a6821f26eaa619f495e73c3481}{int {\bfseries power\-\_\-yr903} (const char $\ast$action)}\label{yr903_8cpp_a7535c2a6821f26eaa619f495e73c3481}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+R\-F\-I\-D controller Y\-R903 command set implementation file. \begin{DoxyAuthor}{Author}
+Vladimir Bogdanov 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+November 2016 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{yr903_8cpp_a3f0dcaf939e1340c796536d1f650875b}{\index{yr903.\-cpp@{yr903.\-cpp}!checksum@{checksum}}
+\index{checksum@{checksum}!yr903.cpp@{yr903.\-cpp}}
+\subsubsection[{checksum}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char checksum (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{u\-Buff, }
+\item[{unsigned char}]{u\-Buff\-Len}
+\end{DoxyParamCaption}
+)}}\label{yr903_8cpp_a3f0dcaf939e1340c796536d1f650875b}
+
+
+Calculates checksum for data packet according to specification. 
+
+This function is copied from manufacturer's datasheet. It calculates proper checksum byte for data packet.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em u\-Buff} & buffer with packet data preparing to transmission \\
+\hline
+\mbox{\tt in}  & {\em u\-Buff\-Len} & length if this buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value to be used as last byte of data packet 
+\end{DoxyReturn}
+\hypertarget{yr903_8cpp_aa7f4324e770df4a79aca3901b05f3786}{\index{yr903.\-cpp@{yr903.\-cpp}!readport@{readport}}
+\index{readport@{readport}!yr903.cpp@{yr903.\-cpp}}
+\subsubsection[{readport}]{\setlength{\rightskip}{0pt plus 5cm}int readport (
+\begin{DoxyParamCaption}
+\item[{int}]{fd, }
+\item[{char $\ast$}]{buf, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}}\label{yr903_8cpp_aa7f4324e770df4a79aca3901b05f3786}
+
+
+Read to buffer from designated character device. 
+
+This function reads data from U\-A\-R\-T to internal buffer and then copies it to given buffer. T\-O\-D\-O\-: fix this. It tries to reads data until during waiting period (see R\-E\-A\-D\-\_\-\-C\-Y\-C\-L\-E\-\_\-\-P\-E\-R\-I\-O\-D, R\-E\-S\-P\-O\-N\-C\-E\-\_\-\-P\-E\-R\-I\-O\-D), but not more than len parameter.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em fd} & opened file descriptor, pointing to character device \\
+\hline
+\mbox{\tt out}  & {\em buf} & where to put all that was read \\
+\hline
+\mbox{\tt in}  & {\em len} & available buffer length \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+actual read length 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em -\/1} & on error, use errno to get error details \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{yr903_8cpp_ac191b61b17141abdb47b70d54967adcd}{\index{yr903.\-cpp@{yr903.\-cpp}!set\-\_\-interface\-\_\-attribs@{set\-\_\-interface\-\_\-attribs}}
+\index{set\-\_\-interface\-\_\-attribs@{set\-\_\-interface\-\_\-attribs}!yr903.cpp@{yr903.\-cpp}}
+\subsubsection[{set\-\_\-interface\-\_\-attribs}]{\setlength{\rightskip}{0pt plus 5cm}int set\-\_\-interface\-\_\-attribs (
+\begin{DoxyParamCaption}
+\item[{int}]{fd, }
+\item[{int}]{speed, }
+\item[{int}]{parity, }
+\item[{int}]{loopback}
+\end{DoxyParamCaption}
+)}}\label{yr903_8cpp_ac191b61b17141abdb47b70d54967adcd}
+
+
+Sets attributes to designated character device. 
+
+This function sets U\-A\-R\-T attributes to designated character device and also controls incircuit loopback.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em fd} & opened file descriptor, pointing to character device \\
+\hline
+\mbox{\tt in}  & {\em speed} & baudrate constant \\
+\hline
+\mbox{\tt in}  & {\em parity} & parity bit mode \\
+\hline
+\mbox{\tt in}  & {\em loopback} & architecture-\/specific constant to control incircuit loopback, use T\-I\-O\-C\-M\-\_\-\-L\-O\-O\-P value to set. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & on success \\
+\hline
+{\em -\/1} & on error \\
+\hline
+\end{DoxyRetVals}
