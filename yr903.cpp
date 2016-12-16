@@ -159,9 +159,13 @@ unsigned char checksum (unsigned char *uBuff, unsigned char uBuffLen)
  * Special command value YR903_CMD_RECEIVE_ONLY is used to read "next"
  * incoming data packet.
  *
- * \param[in] address 
- * \param[in] uBuffLen length if this buffer
- * \return value to be used as last byte of data packet
+ * \param[in] fd file descriptor of communication device
+ * \param[in] address reader's address
+ * \param[in] command command to execute
+ * \param[in] data buffer of data to send
+ * \param[in] data_length length of buffer
+ * \param[out] pbuf pointer to buffer of data to receive
+ * \return count of returned bytes
  */
 int perform_yr903 (int fd, \
 			unsigned char address, \
@@ -265,7 +269,18 @@ int perform_yr903 (int fd, \
 	return received;
 }
 
-int 		power_yr903 (const char* action)
+/**
+ * \brief Turns on/off yr903 power pin
+ *
+ * This function searches for gpio subsystem, creates GPIOs defined in
+ * YR903_PATH_POWER and YR903_PATH_SELECT if needed, tunes them to "out"
+ * and then "select" GPIO turns to 0 (according to scheme) and "power" GPIO
+ * turns to value given as parameter
+ *
+ * \param[in] action defined values YR903_POWERON or YR903_POWEROFF
+ * \return 0 on success
+ */
+int power_yr903 (const char* action)
 {
 	using namespace std;
 
@@ -362,16 +377,6 @@ int 		power_yr903 (const char* action)
 	f_gpio_power_value.open ( YR903_PATH_GPIO YR903_PATH_POWER "/value", ios::out );
 	if ( f_gpio_power_value.good() )
 	{
-/*
-		if ( action == YR903_POWERON )
-		{
-			f_gpio_power_value << "1";
-		}
-		else
-		{
-			f_gpio_power_value << "0";
-		}
-*/
 		f_gpio_power_value << action;
 		f_gpio_power_value.close();
 		usleep(200000); // sleep for 200 msec
@@ -381,7 +386,6 @@ int 		power_yr903 (const char* action)
 		std::cout << "Gpio exporting failed! [4]" << std::endl;
 		return -1;
 	}
-
 
 	return 0;
 }

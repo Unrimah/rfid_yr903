@@ -25,12 +25,10 @@ R\-F\-I\-D controller Y\-R903 console utility.
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{yr903__main_8cpp_a50333d2247eedc3333d30adae06e9a21}{int {\bfseries perform\-\_\-exec} (int fd, char $\ast$$\ast$params, int params\-\_\-count)}\label{yr903__main_8cpp_a50333d2247eedc3333d30adae06e9a21}
-
-\item 
-\hypertarget{yr903__main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{int {\bfseries main} (int argc, char $\ast$$\ast$argv)}\label{yr903__main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
-
-\end{DoxyCompactItemize}
+int \hyperlink{yr903__main_8cpp_a50333d2247eedc3333d30adae06e9a21}{perform\-\_\-exec} (int fd, char $\ast$$\ast$params, int params\-\_\-count)
+\begin{DoxyCompactList}\small\item\em Selects command according to text string and executes it with \hyperlink{yr903_8cpp_a4900a8cd44c17aa8c59335aef0f5b12b}{perform\-\_\-yr903()} function. \end{DoxyCompactList}\item 
+int \hyperlink{yr903__main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Main function to demonstrate yr903 abilities. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -44,3 +42,56 @@ Vladimir Bogdanov
 November 2016 This is console utility for testing and demonstration purposes on working with Y\-R903 R\-F\-I\-D controller and yr903.$\ast$ set of source code.
 \end{DoxyDate}
 Usage examples\-: \$ yr903 /dev/tty\-U\-S\-B0 setup 115200 \$ yr903 /dev/tty\-U\-S\-B0 exec reset \$ yr903 /dev/tty\-U\-S\-B0 exec set\-\_\-beeper\-\_\-mode 2 
+
+\subsection{Function Documentation}
+\hypertarget{yr903__main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{\index{yr903\-\_\-main.\-cpp@{yr903\-\_\-main.\-cpp}!main@{main}}
+\index{main@{main}!yr903_main.cpp@{yr903\-\_\-main.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}\label{yr903__main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+
+
+Main function to demonstrate yr903 abilities. 
+
+This function describes running console application to demonstrate what can be done with Y\-R903 R\-F\-I\-D module. Typical usage is shown in case of starting with no parameters
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em argc} & arguments count \\
+\hline
+\mbox{\tt in}  & {\em argv} & array of command line arguments\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 
+\end{DoxyReturn}
+\hypertarget{yr903__main_8cpp_a50333d2247eedc3333d30adae06e9a21}{\index{yr903\-\_\-main.\-cpp@{yr903\-\_\-main.\-cpp}!perform\-\_\-exec@{perform\-\_\-exec}}
+\index{perform\-\_\-exec@{perform\-\_\-exec}!yr903_main.cpp@{yr903\-\_\-main.\-cpp}}
+\subsubsection[{perform\-\_\-exec}]{\setlength{\rightskip}{0pt plus 5cm}int perform\-\_\-exec (
+\begin{DoxyParamCaption}
+\item[{int}]{fd, }
+\item[{char $\ast$$\ast$}]{params, }
+\item[{int}]{params\-\_\-count}
+\end{DoxyParamCaption}
+)}}\label{yr903__main_8cpp_a50333d2247eedc3333d30adae06e9a21}
+
+
+Selects command according to text string and executes it with \hyperlink{yr903_8cpp_a4900a8cd44c17aa8c59335aef0f5b12b}{perform\-\_\-yr903()} function. 
+
+This function executes designated command with parameters, then listens to the answer packet, until it's length reaches value that is found in its \#2 byte (see \char`\"{}expected = get\-\_\-buf\mbox{[}1\mbox{]};\char`\"{}). Special command value Y\-R903\-\_\-\-C\-M\-D\-\_\-\-R\-E\-C\-E\-I\-V\-E\-\_\-\-O\-N\-L\-Y is used to read \char`\"{}next\char`\"{} incoming data packet.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em fd} & file descriptor of communication device \\
+\hline
+\mbox{\tt in}  & {\em params} & array of pointers to parameter strings \\
+\hline
+\mbox{\tt in}  & {\em params\-\_\-count} & quantity of params\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 
+\end{DoxyReturn}

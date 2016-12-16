@@ -37,6 +37,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -148,7 +149,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">//int readport (int fd, char *buf, int len);</span></div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keywordtype">int</span> perform_yr903 (<span class="keywordtype">int</span> fd, \</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keywordtype">int</span> <a class="code" href="yr903_8h.html#a4900a8cd44c17aa8c59335aef0f5b12b">perform_yr903</a> (<span class="keywordtype">int</span> fd, \</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                        <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> address, \</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                        <a class="code" href="yr903_8h.html#aa8ec0d6f63370182d408fd910f1d4161">yr903_cmd</a> command, \</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *data, \</div>
@@ -156,7 +157,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                        <span class="keywordtype">char</span> (*pbuf)[<a class="code" href="yr903_8h.html#a76c0710fa5ff2d511bf642662801bedf">RCV_BUFFER_SIZE</a>]);</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                        <span class="comment">//, unsigned int expected);</span></div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keywordtype">int</span> power_yr903 (<span class="keyword">const</span> <span class="keywordtype">char</span>* action);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keywordtype">int</span> <a class="code" href="yr903_8h.html#a7535c2a6821f26eaa619f495e73c3481">power_yr903</a> (<span class="keyword">const</span> <span class="keywordtype">char</span>* action);</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">//void set_blocking (int fd, int should_block);</span></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
@@ -187,9 +188,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="yr903_8h_html_aa8ec0d6f63370182d408fd910f1d4161a86cb28d36877f52a0fc1c4e1b26e3a35"><div class="ttname"><a href="yr903_8h.html#aa8ec0d6f63370182d408fd910f1d4161a86cb28d36877f52a0fc1c4e1b26e3a35">YR903_CMD_get_and_reset_inventory_buffer</a></div><div class="ttdoc">not tested </div><div class="ttdef"><b>Definition:</b> yr903.h:76</div></div>
 <div class="ttc" id="yr903_8h_html_aa8ec0d6f63370182d408fd910f1d4161af1faf5564f65c45c45891755b9801a4b"><div class="ttname"><a href="yr903_8h.html#aa8ec0d6f63370182d408fd910f1d4161af1faf5564f65c45c45891755b9801a4b">YR903_CMD_RECEIVE_ONLY</a></div><div class="ttdoc">service value for continious receiving </div><div class="ttdef"><b>Definition:</b> yr903.h:53</div></div>
 <div class="ttc" id="yr903_8h_html_aa8ec0d6f63370182d408fd910f1d4161"><div class="ttname"><a href="yr903_8h.html#aa8ec0d6f63370182d408fd910f1d4161">yr903_cmd</a></div><div class="ttdeci">yr903_cmd</div><div class="ttdef"><b>Definition:</b> yr903.h:51</div></div>
+<div class="ttc" id="yr903_8h_html_a7535c2a6821f26eaa619f495e73c3481"><div class="ttname"><a href="yr903_8h.html#a7535c2a6821f26eaa619f495e73c3481">power_yr903</a></div><div class="ttdeci">int power_yr903(const char *action)</div><div class="ttdoc">Turns on/off yr903 power pin. </div><div class="ttdef"><b>Definition:</b> yr903.cpp:283</div></div>
 <div class="ttc" id="yr903_8h_html_aa8ec0d6f63370182d408fd910f1d4161a0f1f371a7ce2e00a993846a2547be9bd"><div class="ttname"><a href="yr903_8h.html#aa8ec0d6f63370182d408fd910f1d4161a0f1f371a7ce2e00a993846a2547be9bd">YR903_CMD_kill</a></div><div class="ttdoc">not tested </div><div class="ttdef"><b>Definition:</b> yr903.h:72</div></div>
 <div class="ttc" id="yr903_8h_html_aa8ec0d6f63370182d408fd910f1d4161a29b878182bbae8c431a73183687199ff"><div class="ttname"><a href="yr903_8h.html#aa8ec0d6f63370182d408fd910f1d4161a29b878182bbae8c431a73183687199ff">YR903_CMD_set_reader_address</a></div><div class="ttdoc">not tested </div><div class="ttdef"><b>Definition:</b> yr903.h:61</div></div>
 <div class="ttc" id="yr903_8h_html_aa8ec0d6f63370182d408fd910f1d4161a8158d50d2ed9e3eee06a780843e07d44"><div class="ttname"><a href="yr903_8h.html#aa8ec0d6f63370182d408fd910f1d4161a8158d50d2ed9e3eee06a780843e07d44">YR903_CMD_customized_session_target_inventory</a></div><div class="ttdoc">not tested </div><div class="ttdef"><b>Definition:</b> yr903.h:74</div></div>
+<div class="ttc" id="yr903_8h_html_a4900a8cd44c17aa8c59335aef0f5b12b"><div class="ttname"><a href="yr903_8h.html#a4900a8cd44c17aa8c59335aef0f5b12b">perform_yr903</a></div><div class="ttdeci">int perform_yr903(int fd, unsigned char address, yr903_cmd command, const unsigned char *data, unsigned int data_length, char(*pbuf)[RCV_BUFFER_SIZE])</div><div class="ttdoc">Executes command for yr903 and receives answer into buffer. </div><div class="ttdef"><b>Definition:</b> yr903.cpp:170</div></div>
 <div class="ttc" id="yr903_8h_html_aa8ec0d6f63370182d408fd910f1d4161a9f7117d474af251dd861c63db2335492"><div class="ttname"><a href="yr903_8h.html#aa8ec0d6f63370182d408fd910f1d4161a9f7117d474af251dd861c63db2335492">YR903_CMD_get_frequency_region</a></div><div class="ttdoc">not tested </div><div class="ttdef"><b>Definition:</b> yr903.h:66</div></div>
 <div class="ttc" id="yr903_8h_html_aa8ec0d6f63370182d408fd910f1d4161a8d191189cc53c8f9e19c6347e5028071"><div class="ttname"><a href="yr903_8h.html#aa8ec0d6f63370182d408fd910f1d4161a8d191189cc53c8f9e19c6347e5028071">YR903_CMD_inventory</a></div><div class="ttdoc">not tested </div><div class="ttdef"><b>Definition:</b> yr903.h:68</div></div>
 <div class="ttc" id="yr903_8h_html_aa8ec0d6f63370182d408fd910f1d4161a90142d0b15abe74c958e8dd2dbf96dcc"><div class="ttname"><a href="yr903_8h.html#aa8ec0d6f63370182d408fd910f1d4161a90142d0b15abe74c958e8dd2dbf96dcc">YR903_CMD_write</a></div><div class="ttdoc">not tested </div><div class="ttdef"><b>Definition:</b> yr903.h:70</div></div>
@@ -199,7 +202,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 18 2016 18:51:14 for YR903 RFID reader utility by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 16 2016 13:00:28 for YR903 RFID reader utility by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

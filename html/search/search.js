@@ -7,12 +7,13 @@
 
 var indexSectionsWithContent =
 {
-  0: "crsty",
+  0: "cmprsty",
   1: "y",
-  2: "crs",
+  2: "cmprs",
   3: "y",
   4: "y",
-  5: "rsty"
+  5: "rsty",
+  6: "r"
 };
 
 var indexSectionNames =
@@ -22,7 +23,8 @@ var indexSectionNames =
   2: "functions",
   3: "enums",
   4: "enumvalues",
-  5: "defines"
+  5: "defines",
+  6: "pages"
 };
 
 function convertToId(search)

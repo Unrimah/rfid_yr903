@@ -37,6 +37,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -67,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -113,11 +114,11 @@ Functions</h2></td></tr>
 <tr class="memitem:a3f0dcaf939e1340c796536d1f650875b"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="yr903_8cpp.html#a3f0dcaf939e1340c796536d1f650875b">checksum</a> (unsigned char *uBuff, unsigned char uBuffLen)</td></tr>
 <tr class="memdesc:a3f0dcaf939e1340c796536d1f650875b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates checksum for data packet according to specification.  <a href="#a3f0dcaf939e1340c796536d1f650875b">More...</a><br/></td></tr>
 <tr class="separator:a3f0dcaf939e1340c796536d1f650875b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4900a8cd44c17aa8c59335aef0f5b12b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4900a8cd44c17aa8c59335aef0f5b12b"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>perform_yr903</b> (int fd, unsigned char address, <a class="el" href="yr903_8h.html#aa8ec0d6f63370182d408fd910f1d4161">yr903_cmd</a> command, const unsigned char *data, unsigned int data_length, char(*pbuf)[<a class="el" href="yr903_8h.html#a76c0710fa5ff2d511bf642662801bedf">RCV_BUFFER_SIZE</a>])</td></tr>
+<tr class="memitem:a4900a8cd44c17aa8c59335aef0f5b12b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="yr903_8cpp.html#a4900a8cd44c17aa8c59335aef0f5b12b">perform_yr903</a> (int fd, unsigned char address, <a class="el" href="yr903_8h.html#aa8ec0d6f63370182d408fd910f1d4161">yr903_cmd</a> command, const unsigned char *data, unsigned int data_length, char(*pbuf)[<a class="el" href="yr903_8h.html#a76c0710fa5ff2d511bf642662801bedf">RCV_BUFFER_SIZE</a>])</td></tr>
+<tr class="memdesc:a4900a8cd44c17aa8c59335aef0f5b12b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes command for yr903 and receives answer into buffer.  <a href="#a4900a8cd44c17aa8c59335aef0f5b12b">More...</a><br/></td></tr>
 <tr class="separator:a4900a8cd44c17aa8c59335aef0f5b12b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7535c2a6821f26eaa619f495e73c3481"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7535c2a6821f26eaa619f495e73c3481"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>power_yr903</b> (const char *action)</td></tr>
+<tr class="memitem:a7535c2a6821f26eaa619f495e73c3481"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="yr903_8cpp.html#a7535c2a6821f26eaa619f495e73c3481">power_yr903</a> (const char *action)</td></tr>
+<tr class="memdesc:a7535c2a6821f26eaa619f495e73c3481"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns on/off yr903 power pin.  <a href="#a7535c2a6821f26eaa619f495e73c3481">More...</a><br/></td></tr>
 <tr class="separator:a7535c2a6821f26eaa619f495e73c3481"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -160,6 +161,97 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>power_yr903</b> (const
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>value to be used as last byte of data packet </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4900a8cd44c17aa8c59335aef0f5b12b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int perform_yr903 </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="yr903_8h.html#aa8ec0d6f63370182d408fd910f1d4161">yr903_cmd</a>&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>data_length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char(*)&#160;</td>
+          <td class="paramname"><em>pbuf</em>[RCV_BUFFER_SIZE]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Executes command for yr903 and receives answer into buffer. </p>
+<p>This function executes designated command with parameters, then listens to the answer packet, until it's length reaches value that is found in its #2 byte (see "expected = get_buf[1];"). Special command value YR903_CMD_RECEIVE_ONLY is used to read "next" incoming data packet.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fd</td><td>file descriptor of communication device </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">address</td><td>reader's address </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">command</td><td>command to execute </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>buffer of data to send </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data_length</td><td>length of buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">pbuf</td><td>pointer to buffer of data to receive </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>count of returned bytes </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7535c2a6821f26eaa619f495e73c3481"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int power_yr903 </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>action</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Turns on/off yr903 power pin. </p>
+<p>This function searches for gpio subsystem, creates GPIOs defined in YR903_PATH_POWER and YR903_PATH_SELECT if needed, tunes them to "out" and then "select" GPIO turns to 0 (according to scheme) and "power" GPIO turns to value given as parameter</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">action</td><td>defined values YR903_POWERON or YR903_POWEROFF </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success </dd></dl>
 
 </div>
 </div>
@@ -273,7 +365,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>power_yr903</b> (const
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 18 2016 18:51:14 for YR903 RFID reader utility by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 16 2016 13:00:28 for YR903 RFID reader utility by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

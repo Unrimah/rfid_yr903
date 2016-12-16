@@ -116,12 +116,10 @@ enum \hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161}{yr903\-\_\-cmd} \{ \
 \item 
 int \hyperlink{yr903_8h_ac191b61b17141abdb47b70d54967adcd}{set\-\_\-interface\-\_\-attribs} (int fd, int speed, int parity, int loopback)
 \begin{DoxyCompactList}\small\item\em Sets attributes to designated character device. \end{DoxyCompactList}\item 
-\hypertarget{yr903_8h_a4900a8cd44c17aa8c59335aef0f5b12b}{int {\bfseries perform\-\_\-yr903} (int fd, unsigned char address, \hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161}{yr903\-\_\-cmd} command, const unsigned char $\ast$data, unsigned int data\-\_\-length, char($\ast$pbuf)\mbox{[}\hyperlink{yr903_8h_a76c0710fa5ff2d511bf642662801bedf}{R\-C\-V\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}\mbox{]})}\label{yr903_8h_a4900a8cd44c17aa8c59335aef0f5b12b}
-
-\item 
-\hypertarget{yr903_8h_a7535c2a6821f26eaa619f495e73c3481}{int {\bfseries power\-\_\-yr903} (const char $\ast$action)}\label{yr903_8h_a7535c2a6821f26eaa619f495e73c3481}
-
-\end{DoxyCompactItemize}
+int \hyperlink{yr903_8h_a4900a8cd44c17aa8c59335aef0f5b12b}{perform\-\_\-yr903} (int fd, unsigned char address, \hyperlink{yr903_8h_aa8ec0d6f63370182d408fd910f1d4161}{yr903\-\_\-cmd} command, const unsigned char $\ast$data, unsigned int data\-\_\-length, char($\ast$pbuf)\mbox{[}\hyperlink{yr903_8h_a76c0710fa5ff2d511bf642662801bedf}{R\-C\-V\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Executes command for yr903 and receives answer into buffer. \end{DoxyCompactList}\item 
+int \hyperlink{yr903_8h_a7535c2a6821f26eaa619f495e73c3481}{power\-\_\-yr903} (const char $\ast$action)
+\begin{DoxyCompactList}\small\item\em Turns on/off yr903 power pin. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -200,6 +198,63 @@ Command list for yr903 according to specification \begin{Desc}
 
 
 \subsection{Function Documentation}
+\hypertarget{yr903_8h_a4900a8cd44c17aa8c59335aef0f5b12b}{\index{yr903.\-h@{yr903.\-h}!perform\-\_\-yr903@{perform\-\_\-yr903}}
+\index{perform\-\_\-yr903@{perform\-\_\-yr903}!yr903.h@{yr903.\-h}}
+\subsubsection[{perform\-\_\-yr903}]{\setlength{\rightskip}{0pt plus 5cm}int perform\-\_\-yr903 (
+\begin{DoxyParamCaption}
+\item[{int}]{fd, }
+\item[{unsigned char}]{address, }
+\item[{{\bf yr903\-\_\-cmd}}]{command, }
+\item[{const unsigned char $\ast$}]{data, }
+\item[{unsigned int}]{data\-\_\-length, }
+\item[{char($\ast$)}]{pbuf\mbox{[}\-R\-C\-V\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{yr903_8h_a4900a8cd44c17aa8c59335aef0f5b12b}
+
+
+Executes command for yr903 and receives answer into buffer. 
+
+This function executes designated command with parameters, then listens to the answer packet, until it's length reaches value that is found in its \#2 byte (see \char`\"{}expected = get\-\_\-buf\mbox{[}1\mbox{]};\char`\"{}). Special command value Y\-R903\-\_\-\-C\-M\-D\-\_\-\-R\-E\-C\-E\-I\-V\-E\-\_\-\-O\-N\-L\-Y is used to read \char`\"{}next\char`\"{} incoming data packet.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em fd} & file descriptor of communication device \\
+\hline
+\mbox{\tt in}  & {\em address} & reader's address \\
+\hline
+\mbox{\tt in}  & {\em command} & command to execute \\
+\hline
+\mbox{\tt in}  & {\em data} & buffer of data to send \\
+\hline
+\mbox{\tt in}  & {\em data\-\_\-length} & length of buffer \\
+\hline
+\mbox{\tt out}  & {\em pbuf} & pointer to buffer of data to receive \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+count of returned bytes 
+\end{DoxyReturn}
+\hypertarget{yr903_8h_a7535c2a6821f26eaa619f495e73c3481}{\index{yr903.\-h@{yr903.\-h}!power\-\_\-yr903@{power\-\_\-yr903}}
+\index{power\-\_\-yr903@{power\-\_\-yr903}!yr903.h@{yr903.\-h}}
+\subsubsection[{power\-\_\-yr903}]{\setlength{\rightskip}{0pt plus 5cm}int power\-\_\-yr903 (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{action}
+\end{DoxyParamCaption}
+)}}\label{yr903_8h_a7535c2a6821f26eaa619f495e73c3481}
+
+
+Turns on/off yr903 power pin. 
+
+This function searches for gpio subsystem, creates G\-P\-I\-Os defined in Y\-R903\-\_\-\-P\-A\-T\-H\-\_\-\-P\-O\-W\-E\-R and Y\-R903\-\_\-\-P\-A\-T\-H\-\_\-\-S\-E\-L\-E\-C\-T if needed, tunes them to \char`\"{}out\char`\"{} and then \char`\"{}select\char`\"{} G\-P\-I\-O turns to 0 (according to scheme) and \char`\"{}power\char`\"{} G\-P\-I\-O turns to value given as parameter
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em action} & defined values Y\-R903\-\_\-\-P\-O\-W\-E\-R\-O\-N or Y\-R903\-\_\-\-P\-O\-W\-E\-R\-O\-F\-F \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success 
+\end{DoxyReturn}
 \hypertarget{yr903_8h_ac191b61b17141abdb47b70d54967adcd}{\index{yr903.\-h@{yr903.\-h}!set\-\_\-interface\-\_\-attribs@{set\-\_\-interface\-\_\-attribs}}
 \index{set\-\_\-interface\-\_\-attribs@{set\-\_\-interface\-\_\-attribs}!yr903.h@{yr903.\-h}}
 \subsubsection[{set\-\_\-interface\-\_\-attribs}]{\setlength{\rightskip}{0pt plus 5cm}int set\-\_\-interface\-\_\-attribs (

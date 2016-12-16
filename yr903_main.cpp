@@ -27,6 +27,23 @@
 
 #define YR903_MAX_ARGS	10  ///< Max arguments allowed
 
+/**
+ * \brief Selects command according to text string and executes it with
+ * perform_yr903() function.
+ *
+ * This function executes designated command with parameters, then listens
+ * to the answer packet, until it's length reaches value that is found
+ * in its #2 byte (see "expected = get_buf[1];").
+ * Special command value YR903_CMD_RECEIVE_ONLY is used to read "next"
+ * incoming data packet.
+ *
+ * \param[in] fd file descriptor of communication device
+ * \param[in] params array of pointers to parameter strings
+ * \param[in] params_count quantity of params
+ *
+ * \return 0
+ */
+
 int perform_exec(int fd, char **params, int params_count)
 {
 	using namespace std;
@@ -93,6 +110,19 @@ int perform_exec(int fd, char **params, int params_count)
 
 	return 0;
 }
+
+/**
+ * \brief Main function to demonstrate yr903 abilities
+ *
+ * This function describes running console application to demonstrate what
+ * can be done with YR903 RFID module. Typical usage is shown in case of
+ * starting with no parameters
+ *
+ * \param[in] argc arguments count
+ * \param[in] argv array of command line arguments
+ *
+ * \return 0
+ */
 
 int main (int argc, char **argv)
 {
